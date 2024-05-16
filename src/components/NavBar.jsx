@@ -48,6 +48,7 @@ const Center = styled.div`
 
 const Logo = styled.h1`
   font-weight: bold;
+  font-size: 30px;
 `;
 const Right = styled.div`
   flex: 1;
@@ -62,33 +63,37 @@ const MenuItem = styled.div`
   margin-left: 25px;
 `;
 
+const LogoSpan = styled.span`
+  font-size: 35px;
+  color:teal;
+`
 
 const NavBar = () => {
-    return (
-        <Container>
-            <Wrapper>
-                <Left>
-                    <Language>EN</Language>
-                    <SearchContainer>
-                        <Input placeholder="Search" />
-                        <Search style={{ color: "gray", fontSize: 16 }} />
-                    </SearchContainer>
-                </Left>
-                <Center>
-                    <Logo>myDuka.</Logo>
-                </Center>
-                <Right>
-                    <MenuItem>REGISTER</MenuItem>
-                    <MenuItem>SIGN IN</MenuItem>
-                    <MenuItem>
-                        <Badge badgeContent={4} color="primary">
-                            <ShoppingCartOutlined />
-                        </Badge>
-                    </MenuItem>
-                </Right>
-            </Wrapper>
-        </Container>
-    );
+  return (
+    <Container>
+      <Wrapper>
+        <Left>
+          <Language>EN</Language>
+          <SearchContainer>
+            <Input placeholder="Search" className="focus:outline-none" />
+            <Search style={{ color: "gray", fontSize: 16 }} />
+          </SearchContainer>
+        </Left>
+        <Center>
+          <Logo id="logo">my<LogoSpan id="logo">Duka.</LogoSpan></Logo>
+        </Center>
+        <Right>
+          <MenuItem>REGISTER</MenuItem>
+          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem>
+            <Badge badgeContent={4} color="primary">
+              <ShoppingCartOutlined />
+            </Badge>
+          </MenuItem>
+        </Right>
+      </Wrapper>
+    </Container>
+  );
 };
 
 
