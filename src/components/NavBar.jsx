@@ -50,6 +50,7 @@ const Logo = styled.h1`
   font-weight: bold;
   font-size: 30px;
 `;
+
 const Right = styled.div`
   flex: 1;
   display: flex;
