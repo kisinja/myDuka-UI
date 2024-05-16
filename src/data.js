@@ -45,11 +45,11 @@ export const categories = [
 export const popularProducts = [
     {
         id: 1,
-        img: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
+        img: "https://i.pinimg.com/564x/5b/b9/58/5bb95858339913c8a4dda1052375a9d5.jpg",
     },
     {
         id: 2,
-        img: "https://cdn.shopify.com/s/files/1/0101/4832/products/Angela_Natural_Tee.png?v=1606780388",
+        img: "https://i.pinimg.com/564x/72/9c/25/729c254e908bfd3ddb4b2bdc1e70c16c.jpg",
     },
     {
         id: 3,
@@ -57,7 +57,7 @@ export const popularProducts = [
     },
     {
         id: 4,
-        img: "https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png",
+        img: "https://i.pinimg.com/736x/18/cb/bd/18cbbd7a6c71a1e461323db70e6fa6c2.jpg",
     },
     {
         id: 5,
@@ -69,7 +69,7 @@ export const popularProducts = [
     },
     {
         id: 7,
-        img: "https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png",
+        img: "https://i.pinimg.com/564x/d1/2c/b2/d12cb2bd9a304a384a57d046f07bcaf2.jpg",
     },
     {
         id: 8,
