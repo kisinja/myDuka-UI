@@ -11,7 +11,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact element={<ProductList />} />
+        <Route path="/" exact element={<Product />} />
         <Route path="/login" element={<Login />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/register" element={<Register />} />

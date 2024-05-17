@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { useState } from "react"
 import { sliderItems } from "../data"
 import { Link } from "react-router-dom"
+import { mobile } from "../responsive";
 
 const Container = styled.div`
     width:100%;
@@ -10,6 +11,7 @@ const Container = styled.div`
     display:flex;
     position:relative;
     overflow:hidden;
+    ${mobile({display:"none"})}
 `
 
 const Arrow = styled.div`
@@ -46,13 +48,16 @@ const Slide = styled.div`
 const ImgContainer = styled.div`
     flex:1;
     height:100%;
+    ${mobile({ position: "absolute" })};
 `
+
 const InfoContainer = styled.div`
     flex:1;
     padding:50px;
     display:flex;
     flex-direction:column;
     gap:20px;
+    ${mobile({ alignItems: "center", zIndex: "2" })};
 `
 const Image = styled.img`
     height:80%;
@@ -60,6 +65,7 @@ const Image = styled.img`
 
 const Title = styled.h1`
     font-size:70px;
+    ${mobile({textAlign:"center", fontSize:"50px"})}
 `
 
 const Desc = styled.p`
@@ -76,6 +82,7 @@ const Button = styled.button`
     cursor:pointer;
     border:2px solid #000;
 `
+
 const WrapperBtn = styled.div`
     
 `

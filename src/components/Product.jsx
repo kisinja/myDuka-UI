@@ -1,5 +1,6 @@
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from "@mui/icons-material"
 import styled from "styled-components"
+import { mobile } from "../responsive"
 
 const Info = styled.div`
     opacity: 0;
@@ -27,6 +28,7 @@ const Container = styled.div`
     justify-content: center;
     background-color: #f5fbfd;
     position: relative;
+    ${mobile({ width: "100%" })}
 
     &:hover ${Info}{
         opacity: 1;
@@ -60,6 +62,7 @@ const Image = styled.img`
     width: 100%;
     height: 100%;
     z-index: 2;
+    object-fit: cover;
 `
 
 const Product = ({ item }) => {

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { mobile } from '../responsive';
 
 const Container = styled.div`
     width: 100vw; /* For FullScreen Components */
@@ -23,6 +24,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+    ${mobile({width:"80%"})}
 `
 
 const Title = styled.h1`
@@ -44,6 +46,7 @@ const Input = styled.input`
     font-size: 16px;
     margin-bottom: 10px;
     border: 1px solid lightgray;
+    ${mobile({width:"100%"})}
 `
 
 const Agreement = styled.span`

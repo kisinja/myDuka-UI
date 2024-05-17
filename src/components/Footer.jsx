@@ -1,9 +1,10 @@
-import { Facebook, Instagram, MailOutline, Phone, Pinterest, Room, Twitter } from '@mui/icons-material'
+import { Facebook, Instagram, MailOutline, Margin, Phone, Pinterest, Room, Twitter } from '@mui/icons-material'
 import styled from 'styled-components'
+import { mobile } from '../responsive'
 
 const Container = styled.div`
     display: flex;
-
+    ${mobile({ flexDirection: "column" })}
 `
 const Left = styled.div`
     flex: 1;
@@ -14,13 +15,19 @@ const Left = styled.div`
 const Center = styled.div`
     flex: 1;
     padding: 20px;
+    ${mobile({ display: "none" })}
 `
+
 const Right = styled.div`
     flex: 1;
     padding: 20px;
+    ${mobile({ display: "flex" })}
+    ${mobile({ flexDirection: "column" })}
+    ${mobile({ background: "#fff8f8" })}
 `
 const Title = styled.h3`
     margin-bottom: 30px;
+    ${mobile({ marginBottom: "20px", textAlign: "center", fontSize:"20px", fontWeight: "400"})}
 `
 const List = styled.ul`
     margin: 0;
@@ -44,6 +51,9 @@ const Desc = styled.p`
 
 const SocialContainer = styled.div`
     display: flex;
+    cursor: pointer;
+    ${mobile({ justifyContent: "center" })}
+    ${mobile({ gap: "20px" })}
 `
 const SocialIcon = styled.div`
     width: 40px;
@@ -65,9 +75,11 @@ const ContactItem = styled.div`
     display: flex;
     align-items: center;
 `
+
 const Payment = styled.img`
     width: 50%;
 `
+
 
 const Footer = () => {
     return (

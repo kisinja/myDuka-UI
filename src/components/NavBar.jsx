@@ -1,12 +1,13 @@
 import { Badge } from "@mui/material";
 import { Search, ShoppingCartOutlined } from "@mui/icons-material";
 import styled from "styled-components";
-import { mobile } from "../responsive";
+import { mobile, tablet } from "../responsive";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
-  ${mobile({ height: "50px" })}
+  ${mobile({ height: "60px" })}
+  z-index:10000;
 `;
 
 const Wrapper = styled.div`
@@ -40,6 +41,7 @@ const SearchContainer = styled.div`
 const Input = styled.input`
   border: none;
   ${mobile({ width: "50px" })}
+  ${tablet({ width: "100%", color:"red" })}
 `;
 
 const Center = styled.div`
@@ -50,6 +52,7 @@ const Center = styled.div`
 const Logo = styled.h1`
   font-weight: bold;
   font-size: 30px;
+  ${mobile({ fontSize: "24px" })}
 `;
 
 const Right = styled.div`
@@ -57,12 +60,14 @@ const Right = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  ${mobile({ flex: 2, justifyContent: "center" })}
 `;
 
 const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
+  ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
 const LogoSpan = styled.span`
@@ -98,7 +103,7 @@ const NavBar = () => {
             </Link>
           </MenuItem>
           <MenuItem>
-            <Badge badgeContent={4} color="primary">
+            <Badge badgeContent={2} color="primary">
               <ShoppingCartOutlined />
             </Badge>
           </MenuItem>
