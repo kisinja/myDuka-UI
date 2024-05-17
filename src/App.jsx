@@ -4,13 +4,17 @@ import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import ProductList from "./pages/ProductList";
 import Product from "./pages/Product";
+import Register from "./pages/Register";
+import Cart from "./pages/Cart";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact element={<Product/>} />
+        <Route path="/" exact element={<ProductList />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/products" element={<ProductList />} />
+        <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

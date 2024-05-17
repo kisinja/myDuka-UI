@@ -22,3 +22,17 @@ h4 {
 #logo {
     font-family: 'Poetsen One', cursive;
 }
+
+input::-webkit-input-placeholder {
+    text-transform: capitalize;
+}
+
+::-moz-selection {
+    background-color: teal;
+    color: white;
+}
+
+::selection {
+    background-color: teal;
+    color: white;
+}

@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar"
 import NewsLetter from "../components/NewsLetter"
 import Announcements from "../components/Announcements"
 import Footer from "../components/Footer"
+import { Add, Remove } from "@mui/icons-material"
 
 const Container = styled.div`
     display: flex;
@@ -72,6 +73,43 @@ const FilterSizeOption = styled.option`
     padding: 5px;
 `
 
+const AddContainer = styled.div`
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+`
+
+const AmountContainer = styled.div`
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+`
+
+const Amount = styled.span`
+    width: 30px;
+    height: 30px;
+    border: 1px solid teal;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 5px;
+`
+
+const Button = styled.button`
+    padding: 15px;
+    border: 2px solid teal;
+    background-color: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.5s ease;
+    
+    &:hover {
+        background-color: #f8f4f4;
+    }
+`
 
 const Product = () => {
     return (
@@ -89,7 +127,7 @@ const Product = () => {
                     <Desc>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, consequatur. Cumque ea sunt doloribus, tenetur cum quae. Libero excepturi quidem laboriosam reprehenderit ea, esse sunt, obcaecati eum reiciendis totam ex?
                     </Desc>
-                    <Price>$20</Price>
+                    <Price>$ 20</Price>
                     <FilterContainer>
                         <Filter>
                             <FilterTitle>Color</FilterTitle>
@@ -108,6 +146,14 @@ const Product = () => {
                             </FilterSize>
                         </Filter>
                     </FilterContainer>
+                    <AddContainer>
+                        <AmountContainer>
+                            <Remove />
+                            <Amount>1</Amount>
+                            <Add />
+                        </AmountContainer>
+                        <Button className="uppercase focus:ring-2">Add To Cart</Button>
+                    </AddContainer>
                 </InfoContainer>
             </Wrapper>
             <NewsLetter />

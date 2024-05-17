@@ -1,10 +1,10 @@
-import styled from "styled-components";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const Container = styled.div`
     width: 100vw; /* For FullScreen Components */
     height: 100vh;
-    background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
     background-size:cover;
     display: flex;
     justify-content: center;
@@ -33,7 +33,6 @@ const Title = styled.h1`
 
 const Form = styled.form`
     display: flex;
-    flex-direction:column;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
@@ -43,9 +42,14 @@ const Form = styled.form`
 const Input = styled.input`
     padding: 10px;
     font-size: 16px;
-    margin-bottom: 10px 0;
+    margin-bottom: 10px;
     border: 1px solid lightgray;
-    width:100%;
+`
+
+const Agreement = styled.span`
+    font-size: 12px;
+    margin: 10px 0;
+    text-align: center;
 `
 
 const Button = styled.button`
@@ -63,44 +67,44 @@ const Button = styled.button`
         background-color: darkcyan;
     }
 `
+
 const Already = styled.a`
     text-align:center;
     font-size:12px;
     cursor:pointer;
-    text-decoration:underline;
-    color:purple;
+
+    &:hover{
+        text-decoration:underline;
+        color:purple;
+    }
 `
 
-const Links = styled.a`
-    margin:5px 0px;
-    font-size:12px;
-    text-decoration:underline;
-    cursor:pointer;
-    text-align:center;
-`
-
-
-const Login = () => {
+const Register = () => {
     return (
         <Container>
             <Wrapper>
-                <Title>SIGN IN</Title>
+                <Title>CREATE AN ACCOUNT</Title>
                 <Form>
+                    <Input className="focus:ring " placeholder="name" />
+                    <Input className="focus:ring" placeholder="last name" />
                     <Input className="focus:ring" placeholder="username" />
+                    <Input className="focus:ring" placeholder="email" />
                     <Input className="focus:ring" placeholder="password" />
-                    <Button>LOGIN</Button>
-                    <Links>
-                        DO NOT YOU REMEMBER THE PASSWORD?
-                    </Links>
+                    <Input className="focus:ring" placeholder="confirm password" />
+                    <Agreement>
+                        By creating an account, I consent to the processing of my personal data in accordance with the <b>PRIVACY POLICY</b>
+                    </Agreement>
+                    <Button>CREATE</Button>
                     <Already>
-                        <Link to="/register">
-                            DON{"'"}T HAVE AN ACCOUNT? REGISTER
+                        <Link to="/login">
+                            Already Have an Account? Sign In
                         </Link>
                     </Already>
                 </Form>
+
             </Wrapper>
         </Container>
     )
 }
 
-export default Login
+export default Register
