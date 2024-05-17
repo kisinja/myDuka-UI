@@ -11,9 +11,11 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact element={<Product />} />
+        <Route path="/" exact element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/products" element={<ProductList />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

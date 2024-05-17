@@ -41,7 +41,7 @@ const SearchContainer = styled.div`
 const Input = styled.input`
   border: none;
   ${mobile({ width: "50px" })}
-  ${tablet({ width: "100%", color:"red" })}
+  ${tablet({ width: "100%", color: "red" })}
 `;
 
 const Center = styled.div`
@@ -103,9 +103,11 @@ const NavBar = () => {
             </Link>
           </MenuItem>
           <MenuItem>
-            <Badge badgeContent={2} color="primary">
-              <ShoppingCartOutlined />
-            </Badge>
+            <Link to="/cart">
+              <Badge badgeContent={2} color="primary">
+                <ShoppingCartOutlined />
+              </Badge>
+            </Link>
           </MenuItem>
         </Right>
       </Wrapper>
