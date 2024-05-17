@@ -5,7 +5,16 @@ import { mobile } from '../responsive'
 const Container = styled.div`
     display: flex;
     ${mobile({ flexDirection: "column" })}
+    align-items: center;
+    justify-content: center;
 `
+
+const Wrapper = styled.div`
+    display: flex;
+    ${mobile({ flexDirection: "column", marginLeft:"0px" })}
+    margin-left:70px;
+`
+
 const Left = styled.div`
     flex: 1;
     display:flex;
@@ -27,7 +36,7 @@ const Right = styled.div`
 `
 const Title = styled.h3`
     margin-bottom: 30px;
-    ${mobile({ marginBottom: "20px", textAlign: "center", fontSize:"20px", fontWeight: "400"})}
+    ${mobile({ marginBottom: "20px", textAlign: "center", fontSize: "20px", fontWeight: "400" })}
 `
 const List = styled.ul`
     margin: 0;
@@ -84,53 +93,55 @@ const Payment = styled.img`
 const Footer = () => {
     return (
         <Container>
-            <Left>
-                <Logo id="logo">my<LogoSpan id="logo">Duka.</LogoSpan></Logo>
-                <Desc>
-                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don{"'"}t look even slightly believable.
-                </Desc>
-                <SocialContainer>
-                    <SocialIcon color="385999">
-                        <Facebook />
-                    </SocialIcon>
-                    <SocialIcon color="E4405F">
-                        <Instagram />
-                    </SocialIcon>
-                    <SocialIcon color="55ACEE">
-                        <Twitter />
-                    </SocialIcon>
-                    <SocialIcon color="E60023">
-                        <Pinterest />
-                    </SocialIcon>
-                </SocialContainer>
-            </Left>
-            <Center>
-                <Title>Useful Links</Title>
-                <List>
-                    <ListItem>Home</ListItem>
-                    <ListItem>Cart</ListItem>
-                    <ListItem>Man Fashion</ListItem>
-                    <ListItem>Woman Fashion</ListItem>
-                    <ListItem>Accessories</ListItem>
-                    <ListItem>My Account</ListItem>
-                    <ListItem>Order Tracking</ListItem>
-                    <ListItem>Wishlist</ListItem>
-                    <ListItem>Terms</ListItem>
-                </List>
-            </Center>
-            <Right>
-                <Title>Contact</Title>
-                <ContactItem>
-                    <Room style={{ marginRight: "10px" }} /> Address: 123, 123
-                </ContactItem>
-                <ContactItem>
-                    <Phone style={{ marginRight: "10px" }} />Phone: +1 234 56789
-                </ContactItem>
-                <ContactItem>
-                    <MailOutline style={{ marginRight: "10px" }} />Email: Contact@myDuka.com
-                </ContactItem>
-                <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
-            </Right>
+            <Wrapper>
+                <Left>
+                    <Logo id="logo">my<LogoSpan id="logo">Duka.</LogoSpan></Logo>
+                    <Desc>
+                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don{"'"}t look even slightly believable.
+                    </Desc>
+                    <SocialContainer>
+                        <SocialIcon color="385999">
+                            <Facebook />
+                        </SocialIcon>
+                        <SocialIcon color="E4405F">
+                            <Instagram />
+                        </SocialIcon>
+                        <SocialIcon color="55ACEE">
+                            <Twitter />
+                        </SocialIcon>
+                        <SocialIcon color="E60023">
+                            <Pinterest />
+                        </SocialIcon>
+                    </SocialContainer>
+                </Left>
+                <Center>
+                    <Title>Useful Links</Title>
+                    <List>
+                        <ListItem>Home</ListItem>
+                        <ListItem>Cart</ListItem>
+                        <ListItem>Man Fashion</ListItem>
+                        <ListItem>Woman Fashion</ListItem>
+                        <ListItem>Accessories</ListItem>
+                        <ListItem>My Account</ListItem>
+                        <ListItem>Order Tracking</ListItem>
+                        <ListItem>Wishlist</ListItem>
+                        <ListItem>Terms</ListItem>
+                    </List>
+                </Center>
+                <Right>
+                    <Title>Contact</Title>
+                    <ContactItem>
+                        <Room style={{ marginRight: "10px" }} /> Address: 123, 123
+                    </ContactItem>
+                    <ContactItem>
+                        <Phone style={{ marginRight: "10px" }} />Phone: +1 234 56789
+                    </ContactItem>
+                    <ContactItem>
+                        <MailOutline style={{ marginRight: "10px" }} />Email: Contact@myDuka.com
+                    </ContactItem>
+                    <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
+                </Right>
+            </Wrapper>
         </Container>
     )
 }
