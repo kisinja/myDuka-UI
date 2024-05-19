@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { mobile } from '../responsive';
+import NavBar from '../components/NavBar';
+import Announcements from '../components/Announcements';
 
 const Container = styled.div`
     width: 100vw; /* For FullScreen Components */
@@ -18,13 +20,13 @@ const Wrapper = styled.div`
     padding: 20px;
     border-radius: 10px;
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     gap: 10px;
-    ${mobile({width:"80%"})}
+    ${mobile({ width: "80%" })}
 `
 
 const Title = styled.h1`
@@ -46,7 +48,7 @@ const Input = styled.input`
     font-size: 16px;
     margin-bottom: 10px;
     border: 1px solid lightgray;
-    ${mobile({width:"100%"})}
+    ${mobile({ width: "100%" })}
 `
 
 const Agreement = styled.span`
@@ -84,29 +86,33 @@ const Already = styled.a`
 
 const Register = () => {
     return (
-        <Container>
-            <Wrapper>
-                <Title>CREATE AN ACCOUNT</Title>
-                <Form>
-                    <Input className="focus:ring " placeholder="name" />
-                    <Input className="focus:ring" placeholder="last name" />
-                    <Input className="focus:ring" placeholder="username" />
-                    <Input className="focus:ring" placeholder="email" />
-                    <Input className="focus:ring" placeholder="password" />
-                    <Input className="focus:ring" placeholder="confirm password" />
-                    <Agreement>
-                        By creating an account, I consent to the processing of my personal data in accordance with the <b>PRIVACY POLICY</b>
-                    </Agreement>
-                    <Button>CREATE</Button>
-                    <Already>
-                        <Link to="/login">
-                            Already Have an Account? Sign In
-                        </Link>
-                    </Already>
-                </Form>
+        <>
+            <Announcements />
+            <NavBar />
+            <Container>
+                <Wrapper>
+                    <Title>CREATE AN ACCOUNT</Title>
+                    <Form>
+                        <Input className="focus:ring " placeholder="name" />
+                        <Input className="focus:ring" placeholder="last name" />
+                        <Input className="focus:ring" placeholder="username" />
+                        <Input className="focus:ring" placeholder="email" />
+                        <Input className="focus:ring" placeholder="password" />
+                        <Input className="focus:ring" placeholder="confirm password" />
+                        <Agreement>
+                            By creating an account, I consent to the processing of my personal data in accordance with the <b>PRIVACY POLICY</b>
+                        </Agreement>
+                        <Button>CREATE</Button>
+                        <Already>
+                            <Link to="/login">
+                                Already Have an Account? Sign In
+                            </Link>
+                        </Already>
+                    </Form>
 
-            </Wrapper>
-        </Container>
+                </Wrapper>
+            </Container>
+        </>
     )
 }
 

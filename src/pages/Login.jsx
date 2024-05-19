@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { mobile } from '../responsive';
+import NavBar from '../components/NavBar';
+import Announcements from '../components/Announcements';
 
 const Container = styled.div`
     width: 100vw; /* For FullScreen Components */
@@ -10,7 +12,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    ${mobile({backgroundPosition:"100%"})}
+    ${mobile({ backgroundPosition: "100%" })}
 `
 
 const Wrapper = styled.div`
@@ -25,7 +27,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    ${mobile({width:"80%"})}
+    ${mobile({ width: "80%" })}
 `
 
 const Title = styled.h1`
@@ -49,7 +51,7 @@ const Input = styled.input`
     margin-bottom: 10px 0;
     border: 1px solid lightgray;
     width:100%;
-    ${mobile({width:"90%"})}
+    ${mobile({ width: "90%" })}
 `
 
 const Button = styled.button`
@@ -85,7 +87,9 @@ const Links = styled.a`
 
 
 const Login = () => {
-    return (
+    return (<>
+        <Announcements />
+        <NavBar />
         <Container>
             <Wrapper>
                 <Title>SIGN IN</Title>
@@ -104,6 +108,7 @@ const Login = () => {
                 </Form>
             </Wrapper>
         </Container>
+    </>
     )
 }
 
