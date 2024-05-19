@@ -12,6 +12,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    ${mobile({ backgroundPosition: "100%" })}
 `
 
 const Wrapper = styled.div`
