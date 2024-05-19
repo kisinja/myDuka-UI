@@ -9,6 +9,9 @@ const Container = styled.div`
     justify-content:center;
     font-size:14px;
     font-weight:500;
+    z-index:10000;
+    position:sticky;
+    top:0;
 `
 
 

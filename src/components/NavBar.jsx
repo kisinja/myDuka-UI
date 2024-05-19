@@ -8,6 +8,9 @@ const Container = styled.div`
   height: 60px;
   ${mobile({ height: "60px" })}
   z-index:10000;
+  position:sticky;
+  top:0;
+  background-color: white;
 `;
 
 const Wrapper = styled.div`
