@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { mobile } from '../responsive';
 import NavBar from '../components/NavBar';
 import Announcements from '../components/Announcements';
+import { useEffect } from "react";
 
 const Container = styled.div`
     width: 100vw; /* For FullScreen Components */
@@ -86,6 +87,16 @@ const Already = styled.a`
 `
 
 const Register = () => {
+
+    const navigateTo = useNavigate();
+    const user = true;
+
+    useEffect(() => {
+        if (user) {
+            return navigateTo("/");
+        }
+    });
+
     return (
         <>
             <Announcements />

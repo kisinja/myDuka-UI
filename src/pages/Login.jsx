@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { mobile } from '../responsive';
 import NavBar from '../components/NavBar';
 import Announcements from '../components/Announcements';
@@ -87,6 +88,15 @@ const Links = styled.a`
 
 
 const Login = () => {
+
+    const navigateTo = useNavigate();
+    const user = true;
+
+    useEffect(() => {
+        if (user) {
+            return navigateTo("/");
+        }
+    });
     return (<>
         <Announcements />
         <NavBar />
