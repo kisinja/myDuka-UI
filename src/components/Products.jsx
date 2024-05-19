@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import axios from "axios";
-import { popularProducts } from "../data";
 import Product from "./Product";
-import { mobile } from "../responsive";
 import { useEffect, useState } from "react";
 
 const Container = styled.div`
