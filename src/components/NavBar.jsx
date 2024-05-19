@@ -3,6 +3,7 @@ import { Search, ShoppingCartOutlined } from "@mui/icons-material";
 import styled from "styled-components";
 import { mobile, tablet } from "../responsive";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Container = styled.div`
   height: 60px;
@@ -76,6 +77,8 @@ const LogoSpan = styled.span`
 `
 
 const NavBar = () => {
+  const quantity = useSelector((state) => state.cart.quantity);
+  console.log(quantity);
   return (
     <Container>
       <Wrapper>
@@ -104,7 +107,7 @@ const NavBar = () => {
           </MenuItem>
           <MenuItem>
             <Link to="/cart">
-              <Badge badgeContent={2} color="primary">
+              <Badge badgeContent={quantity} color="primary">
                 <ShoppingCartOutlined />
               </Badge>
             </Link>
