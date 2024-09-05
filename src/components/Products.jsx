@@ -2,6 +2,7 @@ import styled from "styled-components";
 import axios from "axios";
 import Product from "./Product";
 import { useEffect, useState } from "react";
+import Loader from "./Loader";
 
 const Container = styled.div`
     padding: 20px;
@@ -15,13 +16,20 @@ const Products = ({ cat, filters, sort }) => {
     const [filteredProducts, setFilteredProducts] = useState([]);
     const BASE_URL = "https://myduka-server.onrender.com/api/products";
 
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
+
+        setLoading(true);
+
         const getProducts = async () => {
             try {
                 const res = await axios.get(cat ? `${BASE_URL}?category=${cat}` : `${BASE_URL}`);
                 const data = res.data.products;
                 console.log(data);
                 setProducts(data);
+
+                setLoading(false);
             } catch (error) {
                 console.log(error.message);
             }
@@ -60,9 +68,13 @@ const Products = ({ cat, filters, sort }) => {
         <Container>
 
             {cat ? filteredProducts.map((item) =>
-                <Product key={item.id} item={item} />
+            (
+                loading ? <Loader key={loading} text={"Fetching products"} /> : <Product key={item.id} item={item} />
+            )
             ) : products.slice(0, 8).map((item) =>
-                <Product item={item} key={item.id} />
+            (
+                loading ? <Loader key={loading} text={"Fetching products"} /> : <Product key={item.id} item={item} />
+            )
             )}
         </Container>
     )
