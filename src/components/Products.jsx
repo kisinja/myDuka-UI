@@ -13,7 +13,7 @@ const Products = ({ cat, filters, sort }) => {
 
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
-    const BASE_URL = "http://localhost:5050/api/products";
+    const BASE_URL = "https://myduka-server.onrender.com/api/products";
 
     useEffect(() => {
         const getProducts = async () => {

@@ -1,9 +1,7 @@
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from "@mui/icons-material"
 import styled from "styled-components"
 import { mobile } from "../responsive"
-import { Link, useLocation } from "react-router-dom"
-import { useEffect, useState } from "react"
-import { publicRequest } from "../requestMethods"
+import { Link } from "react-router-dom"
 
 const Info = styled.div`
     opacity: 0;
@@ -68,7 +66,7 @@ const Image = styled.img`
     object-fit: cover;
 `
 
-const Product = ({item}) => {
+const Product = ({ item }) => {
 
     return (
         <Container>
