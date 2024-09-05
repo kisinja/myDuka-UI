@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { mobile, tablet } from "../responsive";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const Container = styled.div`
   height: 60px;
@@ -78,7 +79,13 @@ const LogoSpan = styled.span`
 
 const NavBar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
-  console.log(quantity);
+
+  const cart = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
+
   return (
     <Container>
       <Wrapper>

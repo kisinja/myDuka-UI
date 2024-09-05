@@ -123,13 +123,11 @@ const Button = styled.button`
 const Product = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
-  console.log(location);
-
+  const dispatch = useDispatch();
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -154,9 +152,11 @@ const Product = () => {
   const handleClick = () => {
     console.log("product", product);
     dispatch(
-      addProduct({ ...product, quantity, color, size })
+      addProduct(
+        { ...product, quantity, color, size }
+      )
     );
-  }
+  };
 
   return (
     <Container>
