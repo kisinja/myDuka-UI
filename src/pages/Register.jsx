@@ -77,7 +77,7 @@ const Button = styled.button`
     }
 `
 
-const Already = styled.a`
+const Already = styled.p`
     text-align:center;
     font-size:12px;
     cursor:pointer;
@@ -100,8 +100,6 @@ const Register = () => {
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const [showMessage, setShowMessage] = useState(false);
-
     const dispatch = useDispatch();
 
     const handleClick = (e) => {
@@ -116,7 +114,6 @@ const Register = () => {
             const user = { firstName, lastName, username, email, password };
 
             register(dispatch, user);
-            setShowMessage(true);
             setMessage("Your account has been created successfully!!");
             setLoading(false);
         }
