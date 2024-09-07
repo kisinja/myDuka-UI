@@ -110,10 +110,6 @@ const NavBar = () => {
           {
             currentUser ? (
               <MenuItem className="flex gap-3">
-                <span className="">
-                  Hi,
-                  <b>{currentUser.user.username}</b>
-                </span>
                 <Link onClick={handleClick}>Logout</Link>
               </MenuItem>
             ) : (
