@@ -166,7 +166,6 @@ const KEY = "pk_test_51Pvkp7P1kDFtYXMyeryor3fReDHghaSIP0MiTrjhAlgJvdCJSuhXs37BxU
 
 const Cart = () => {
 
-  console.log("Stripe Key: ", KEY);
 
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
@@ -186,8 +185,10 @@ const Cart = () => {
 
         navigate("/success",
           {
-            stripeData: res.data,
-            products: cart,
+            state: {
+              stripeData: res.data,
+              products: cart,
+            }
           }
         );
       } catch (error) {
