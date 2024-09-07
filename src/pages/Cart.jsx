@@ -184,7 +184,12 @@ const Cart = () => {
           amount: 500,
         });
 
-        navigate("/success", { data: res.data });
+        navigate("/success",
+          {
+            stripeData: res.data,
+            products: cart,
+          }
+        );
       } catch (error) {
         console.log(error.message);
       }
