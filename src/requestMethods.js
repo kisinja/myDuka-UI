@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 const BASE_URL = 'https://myduka-server.onrender.com/api';
+/* const BASE_URL = 'http://localhost:5050/api'; */
 
-const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NDlkY2Q1MjA3NWI5NGFlYjkyOGEyMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcxNjEyMzA2NSwiZXhwIjoxNzE2MzgyMjY1fQ.B2BBdq1pNDB24oP_cozeJAul3f7BaI8WZMlew_LYlE0";
+const user = localStorage.getItem('currentUser');
+
 
 export const publicRequest = axios.create({
     baseURL: `${BASE_URL}`,
@@ -11,6 +13,6 @@ export const publicRequest = axios.create({
 export const userRequest = axios.create({
     baseURL: `${BASE_URL}`,
     header: {
-        token: `Bearer ${TOKEN}`
+        token: user && `Bearer ${user.token}`
     }
 });

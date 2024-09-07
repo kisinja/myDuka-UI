@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import { mobile } from '../responsive';
 import NavBar from '../components/NavBar';
 import Announcements from '../components/Announcements';
+import { login } from "../redux/apiCalls";
+import { useDispatch } from "react-redux";
 
 const Container = styled.div`
     width: 100vw; /* For FullScreen Components */
@@ -89,14 +91,26 @@ const Links = styled.a`
 
 const Login = () => {
 
-    const navigateTo = useNavigate();
-    const user = true;
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        if (user) {
-            return navigateTo("/");
-        }
-    });
+    
+
+    const dispatch = useDispatch();
+
+    const handleClick = (e) => {
+        setLoading(true);
+        e.preventDefault();
+
+        const user = { username, password };
+
+        login(dispatch, user);
+        setLoading(false);
+    };
+
     return (<>
         <Announcements />
         <NavBar />
@@ -104,9 +118,20 @@ const Login = () => {
             <Wrapper>
                 <Title>SIGN IN</Title>
                 <Form>
-                    <Input className="focus:ring" placeholder="username" />
-                    <Input className="focus:ring" placeholder="password" />
-                    <Button>LOGIN</Button>
+                    <Input className="focus:ring" placeholder="username" onChange={(e) => setUsername(e.target.value)} />
+                    <Input className="focus:ring" placeholder="password" type="password" onChange={(e) => setPassword(e.target.value)} />
+
+                    {error && <div className="error">{error}</div>}
+
+                    {message && <div className="message">{message}</div>}
+
+                    <Button
+                        onClick={handleClick}
+                        className="focus:ring-4 focus:ring-blue-300 focus:bg-white focus:text-black focus:outline-none w-full"
+                        disabled={loading}
+                    >
+                        {loading ? "LOADING..." : "LOGIN"}
+                    </Button>
                     <Links>
                         DO NOT YOU REMEMBER THE PASSWORD?
                     </Links>

@@ -2,7 +2,6 @@ import styled from "styled-components";
 import axios from "axios";
 import Product from "./Product";
 import { useEffect, useState } from "react";
-import Loader from "./Loader";
 
 const Container = styled.div`
     padding: 20px;
@@ -68,16 +67,12 @@ const Products = ({ cat, filters, sort }) => {
         <Container>
 
             {cat ? filteredProducts.map((item) =>
-            (
-                loading ? <Loader key={loading} text={"Fetching products"} /> : <Product key={item.id} item={item} />
-            )
+                <Product key={item._id} item={item} />
             ) : products.slice(0, 8).map((item) =>
-            (
-                loading ? <Loader key={loading} text={"Fetching products"} /> : <Product key={item.id} item={item} />
-            )
+                <Product item={item} key={item._id} />
             )}
         </Container>
     )
 }
 
-export default Products
+export default Products;

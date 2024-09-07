@@ -1,9 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { mobile } from '../responsive';
 import NavBar from '../components/NavBar';
 import Announcements from '../components/Announcements';
-import { useEffect } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { register } from "../redux/apiCalls";
 
 const Container = styled.div`
     width: 100vw; /* For FullScreen Components */
@@ -88,14 +90,41 @@ const Already = styled.a`
 
 const Register = () => {
 
-    const navigateTo = useNavigate();
-    const user = true;
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [error, setError] = useState("");
+    const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        if (user) {
-            return navigateTo("/");
+    const [showMessage, setShowMessage] = useState(false);
+
+    const dispatch = useDispatch();
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        if (password !== confirmPassword) {
+            setError("Your password confirmation is incorrect!!");
+            setLoading(false);
+            return;
+        } else {
+            const user = { firstName, lastName, username, email, password };
+
+            register(dispatch, user);
+            setShowMessage(true);
+            setMessage("Your account has been created successfully!!");
+            setLoading(false);
         }
-    });
+
+        setMessage("");
+        setError("");
+        setLoading(false);
+    };
 
     return (
         <>
@@ -105,16 +134,35 @@ const Register = () => {
                 <Wrapper>
                     <Title>CREATE AN ACCOUNT</Title>
                     <Form>
-                        <Input className="focus:ring " placeholder="name" />
-                        <Input className="focus:ring" placeholder="last name" />
-                        <Input className="focus:ring" placeholder="username" />
-                        <Input className="focus:ring" placeholder="email" />
-                        <Input className="focus:ring" placeholder="password" />
-                        <Input className="focus:ring" placeholder="confirm password" />
+                        <Input className="focus:ring " placeholder="first name" onChange={(e) => setFirstName(e.target.value)} />
+                        <Input className="focus:ring" placeholder="last name" onChange={(e) => setLastName(e.target.value)} />
+                        <Input className="focus:ring" placeholder="username" onChange={(e) => setUsername(e.target.value)} />
+                        <Input className="focus:ring" placeholder="email" onChange={(e) => setEmail(e.target.value)} />
+                        <Input
+                            className="focus:ring"
+                            type="password"
+                            placeholder="password" onChange={(e) => setPassword(e.target.value)} />
+                        <Input
+                            className="focus:ring"
+                            type="password"
+                            placeholder="confirm password" onChange={(e) => setConfirmPassword(e.target.value)} />
                         <Agreement>
-                            By creating an account, I consent to the processing of my personal data in accordance with the <b>PRIVACY POLICY</b>
+                            By creating an account, I consent to the processing of my personal data in accordance with the <a href="/privacy-policy">
+                                <b>PRIVACY POLICY</b>
+                            </a>
                         </Agreement>
-                        <Button>CREATE</Button>
+
+                        {error && <div className="error">{error}</div>}
+
+                        {message && <div className="message">{message}</div>}
+
+                        <Button
+                            onClick={handleClick}
+                            className="focus:ring-4 focus:ring-blue-300 focus:bg-white focus:text-black focus:outline-none w-full"
+                            disabled={loading}
+                        >
+                            {loading ? "LOADING..." : "CREATE"}
+                        </Button>
                         <Already>
                             <Link to="/login">
                                 Already Have an Account? Sign In

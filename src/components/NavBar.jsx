@@ -3,8 +3,9 @@ import { Search, ShoppingCartOutlined } from "@mui/icons-material";
 import styled from "styled-components";
 import { mobile, tablet } from "../responsive";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/userRedux";
+
 
 const Container = styled.div`
   height: 60px;
@@ -79,12 +80,16 @@ const LogoSpan = styled.span`
 
 const NavBar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
+  /* const currentUser = JSON.parse(localStorage.getItem("currentUser")); */
+  const { currentUser } = useSelector(state => state.user);
 
-  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
+  const handleClick = () => {
+    dispatch(logout());
+    localStorage.removeItem("currentUser");
+    window.location.reload();
+  };
 
   return (
     <Container>
@@ -102,16 +107,26 @@ const NavBar = () => {
           </Link>
         </Center>
         <Right>
-          <MenuItem>
-            <Link to="/register">
-              REGISTER
-            </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to="/login">
-              SIGN IN
-            </Link>
-          </MenuItem>
+          {
+            currentUser ? (
+              <MenuItem className="flex gap-3">
+                <span className="">
+                  Hi,
+                  <b>{currentUser.user.username}</b>
+                </span>
+                <Link onClick={handleClick}>Logout</Link>
+              </MenuItem>
+            ) : (
+              <>
+                <MenuItem>
+                  <Link to="/register">Register</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/login">Login</Link>
+                </MenuItem>
+              </>
+            )
+          }
           <MenuItem>
             <Link to="/cart">
               <Badge badgeContent={quantity} color="primary">
