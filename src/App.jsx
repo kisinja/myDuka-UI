@@ -9,6 +9,7 @@ import Cart from "./pages/Cart";
 import Success from "./pages/Success";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const App = () => {
 
@@ -31,6 +32,8 @@ const App = () => {
         <Route path="/register" element={!currentUser ? <Register /> : <Navigate to="/" />} />
         <Route path="/success" element={currentUser ? <Success /> : <Navigate to="/login" />} />
         <Route path="*" element={<NotFound />} />
+
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
     </BrowserRouter>
 
