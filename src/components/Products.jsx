@@ -2,6 +2,7 @@ import styled from "styled-components";
 import axios from "axios";
 import Product from "./Product";
 import { useEffect, useState } from "react";
+import Loader from "./Loader";
 
 const Container = styled.div`
     padding: 20px;
@@ -61,7 +62,9 @@ const Products = ({ cat, filters, sort }) => {
                 [...prev].sort((a, b) => (a.price > b.price ? -1 : 1))
             );
         }
-    }, [sort])
+    }, [sort]);
+
+    if (loading) { return <Loader text="Loading..." /> }
 
     return (
         <Container>

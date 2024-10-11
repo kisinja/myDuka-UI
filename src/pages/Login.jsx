@@ -6,6 +6,7 @@ import NavBar from '../components/NavBar';
 import Announcements from '../components/Announcements';
 import { login } from "../redux/apiCalls";
 import { useDispatch } from "react-redux";
+import Loader from "../components/Loader";
 
 const Container = styled.div`
     width: 100vw; /* For FullScreen Components */
@@ -97,7 +98,7 @@ const Login = () => {
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
 
-    
+
 
     const dispatch = useDispatch();
 
@@ -110,6 +111,10 @@ const Login = () => {
         login(dispatch, user);
         setLoading(false);
     };
+
+    if (loading) {
+        return <Loader text="Logging in" />
+    }
 
     return (<>
         <Announcements />
